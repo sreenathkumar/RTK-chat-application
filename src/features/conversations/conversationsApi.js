@@ -116,17 +116,17 @@ export const conversationsApi = apiSlice.injectEndpoints({
                      })
                   );
                   // // pasimistic cache update start
-                  dispatch(
-                     apiSlice.util.updateQueryData(
-                        "getConversations",
-                        arg.sender,
-                        (draft) => {
-                           const draftConversation = draft.data
-                           const id = res?.data?.conversationId.toString()
-                           draftConversation.unshift({ ...arg.data, id: id })
-                        }
-                     )
-                  );
+                  // dispatch(
+                  //    apiSlice.util.updateQueryData(
+                  //       "getConversations",
+                  //       arg.sender,
+                  //       (draft) => {
+                  //          const draftConversation = draft.data
+                  //          const id = res?.data?.conversationId.toString()
+                  //          draftConversation.unshift({ ...arg.data, id: id })
+                  //       }
+                  //    )
+                  // );
                   // // pasimistic cache update end
                }
             } catch (error) {
@@ -183,15 +183,15 @@ export const conversationsApi = apiSlice.injectEndpoints({
                   ).unwrap();
 
                   // update messages cache pessimistically start
-                  dispatch(
-                     apiSlice.util.updateQueryData(
-                        "getMessages",
-                        res.conversationId.toString(),
-                        (draft) => {
-                           draft.push(res);
-                        }
-                     )
-                  );
+                  // dispatch(
+                  //    apiSlice.util.updateQueryData(
+                  //       "getMessages",
+                  //       res.conversationId.toString(),
+                  //       (draft) => {
+                  //          draft.push(res);
+                  //       }
+                  //    )
+                  // );
                   // update messages cache pessimistically end
                }
             } catch (err) {
